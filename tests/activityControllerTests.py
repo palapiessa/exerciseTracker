@@ -1,6 +1,6 @@
 import unittest 
 import datetime
-from .context import activityEvent
+from context import activityEvent
 
 class activityControllerTest(unittest.TestCase):
     def testConstructorShouldStoreActivity(self):         
