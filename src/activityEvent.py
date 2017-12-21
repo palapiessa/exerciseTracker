@@ -1,7 +1,7 @@
 from datetime import datetime
 from numbers import Number
 
-class activityEvent: 
+class activityEvent(): 
     units=""
 
     def __init__(self): 
