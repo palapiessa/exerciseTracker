@@ -3,26 +3,40 @@ from numbers import Number
 
 class activityEvent(): 
     units=""
+    types=""
 
     def __init__(self): 
         self.date = datetime.now()
-        self.start = datetime.now().strftime('%m/%d/%Y')
+        self.startTime = datetime.now().strftime("%Y-%m-%d %H:%M:%S")
         self.units = ['km','mi','h']
+        self.types = ["cycling","running","sleep"]
+
+    @property
+    def type(self):
+        return self.__type
+
+    @type.setter
+    def type(self, value):
+        if value in types:
+            self.__type = value
+        else:
+            raise ValueError("Type is not correct, use " +str(types))
     
     @property
-    def date(self):                                      return self.__date
+    def date(self):
+        return self.__date
 
     @date.setter
     def date(self, date):
         self.__date = date
     
     @property
-    def start(self):
-        return self.__start
+    def startTime(self):
+        return self.__startTime
 
-    @start.setter
-    def start(self, date):
-        self.__start = date
+    @startTime.setter
+    def startTime(self, date):
+        self.__startTime = date
 
     @property 
     def distance(self): 
@@ -41,7 +55,8 @@ class activityEvent():
 
     @unit.setter
     def unit(self, unit):
-        if unit in units:                                    self.__unit = unit
+        if unit in units:
+            self.__unit = unit
         else:
-            raise ValueError("Unit is not correct, use km, mi or h.")
+            raise ValueError("Unit is not correct, use "+str(units))
     
