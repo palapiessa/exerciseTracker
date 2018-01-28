@@ -6,7 +6,6 @@ class activityEvent():
     types=""
 
     def __init__(self): 
-        self.date = datetime.now()
         self.startTime = datetime.now().strftime("%Y-%m-%d %H:%M:%S")
         self.units = ['km','mi','h']
         self.types = ["cycling","running","sleep"]
@@ -21,14 +20,6 @@ class activityEvent():
             self.__type = value
         else:
             raise ValueError("Type is not correct, use " +str(types))
-    
-    @property
-    def date(self):
-        return self.__date
-
-    @date.setter
-    def date(self, date):
-        self.__date = date
     
     @property
     def startTime(self):
