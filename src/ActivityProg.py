@@ -1,14 +1,32 @@
 import argparse 
+import sys
+from cmd import Cmd
 
-types = ["cycle","sleep","run"] 
-units = ["km","min"]
+this = sys.modules[__name__]
+this.types = ["cycle","sleep","run"] 
+this.units = ["km","min"]
 
-class ActivityProg():
+
+class ActivityProg(Cmd):
 
     def parseArgs(self,args):
         parser = argparse.ArgumentParser() 
-        parser.add_argument("type",help="type of the activity",choices=types) 
-        parser.add_argument("unit",default="min", help="measured unit eg. min",choices=units)
+        parser.add_argument("type",help="type of the activity",choices=this.types) 
+        parser.add_argument("unit",default="min", help="measured unit eg. min",choices=this.units)
         return parser.parse_args(args)
 
+    def do_start(self, args):
+        print("start")
 
+    def do_stop(self, args):
+        print("stop")
+
+    def do_quit(self, args):
+        """Quits the program.""" 
+        print "Quitting."
+        raise SystemExit
+
+if __name__ == '__main__':
+    prompt = ActivityProg()
+    prompt.prompt = '> '
+    prompt.cmdloop("Starting activity logging")
