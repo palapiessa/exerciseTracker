@@ -16,16 +16,18 @@ class ActivityProg(Cmd):
         return parser.parse_args(args)
 
     def do_start(self, args):
+        """Start an activity. Give activity type as argument. Only one activity can be started per time."""
         print("start")
 
     def do_stop(self, args):
+        """Stop current activity and save activity data."""
         print("stop")
 
     def do_quit(self, args):
         """Quits the program.""" 
-        print "Quitting."
+        print("Quitting.")
         raise SystemExit
-
+ 
 if __name__ == '__main__':
     prompt = ActivityProg()
     prompt.prompt = '> '

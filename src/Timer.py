@@ -25,6 +25,7 @@ class Timer():
     def stopTime(self, date):
         self.__stopTime = date
 
+    # this will return in format (minutes, seconds)
     def duration(self):
         start= datetime.strptime(self.startTime,"%Y-%m-%d %H:%M:%S")
         end= datetime.strptime(self.stopTime,"%Y-%m-%d %H:%M:%S")

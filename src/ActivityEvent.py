@@ -1,4 +1,3 @@
-from datetime import datetime
 from numbers import Number
 
 class ActivityEvent(): 
